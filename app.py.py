@@ -54,7 +54,7 @@ if beta_file and gamma_file:
         for col in ['TI', 'RDI', 'RI']:
             if col in beta_df.columns:
                 # Resampling monthly for cleaner visualization
-                monthly_data = beta_df[col].resample('M').mean()
+                monthly_data = beta_df[col].resample('ME').mean()
                 fig_beta.add_trace(go.Scatter(x=monthly_data.index, y=monthly_data.values, mode='lines+markers', name=col))
         fig_beta.update_layout(title="Beta File: Metallurgical Properties over Time", xaxis_title="Date", yaxis_title="Index Value")
         st.plotly_chart(fig_beta, use_container_width=True)
